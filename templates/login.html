@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% if error %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error </strong>{{error}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+
+
+{% endif %}
+<div class="container">
+
+    <div class="p-4 m-4">
+        <div class="col-lg-4 mx-auto border rounded p-4"
+            style="padding-right: 4.5rem!important ;padding-left: 3.5rem!important;">
+            
+            <form action="/login" method="post">
+                {% csrf_token %}
+
+
+
+
+
+                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" name="email_login" placeholder="username">
+                    <label for="username">email</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" name="password_login"
+                        placeholder="Password">
+                    <label for="password">Password</label>
+                </div>
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+               
+                <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% if error %}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error </strong>{{error}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
+
+
+
+{% endif %}
+<div class="container">
+
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded p-4"
+            style="padding-right: 4.5rem!important ;padding-left: 3.5rem!important;">
+            <h1>Creat Account</h1>
+            <form action="/signup" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="exampleInputEmail1">First Name</label>
+                    <input type="text" value="{{values.first_name}}" class="form-control" name="f_name" aria-describedby="emailHelp"
+                        placeholder="First Name">
+
+                </div><br>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Last Name</label>
+                    <input type="text" value="{{values.last_name}}" class="form-control" name="l_name" aria-describedby="emailHelp"
+                        placeholder="Last Name">
+
+                </div><br>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Phone</label>
+                    <input type="text" value="{{values.phone_number}}" class="form-control" name="Phone" aria-describedby="emailHelp">
+
+                </div><br>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" value="{{values.email_Adress}}" class="form-control" name="email_Adress" aria-describedby="emailHelp"
+                        placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div><br>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="pass" placeholder="Password">
+                </div><br>
+                <button type="submit" class="btn btn-primary">Create</button>
+                <br>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
